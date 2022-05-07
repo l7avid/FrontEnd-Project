@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react'
-import { saveToDo } from '../services/ToDoServices'
+import { useContext } from 'react'
+import { updateToDo } from '../services/ToDoServices'
 import { Store } from '../state/StoreProvider'
 
 const AuxForm = ({ temporalAuxState, setTemporalAuxState }) => {
@@ -7,7 +7,7 @@ const AuxForm = ({ temporalAuxState, setTemporalAuxState }) => {
   const onSubmitToDo = async (e) => {
     e.preventDefault()
     const putTodo = { ...temporalAuxState }
-    const newState = await saveToDo(putTodo)
+    const newState = await updateToDo(putTodo)
     if(newState){
       dispatch({ type: 'update-todo', payload: newState })
       setTemporalAuxState({})

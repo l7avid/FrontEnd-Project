@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { deleteToDo, updateToDo } from '../services/ToDoServices'
 import { Store } from '../state/StoreProvider'
 const Todo = ({ todo, setTemporalAuxState }) => {
