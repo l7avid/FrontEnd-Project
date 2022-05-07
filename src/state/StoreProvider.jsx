@@ -5,22 +5,22 @@ import reducer from './Reducer';
 /*const initialState = [
     {
         categoryId: '1',
-        categoryName: 'sports',
+        categoryName: 'category 1',
         listOfToDos: [
             {
                 id: '3',
-                title: 'running',
+                title: 'task 1',
                 cateoryId: '1',
                 done: false
             }
         ]
     },{
         categoryId: '2',
-        categoryName: 'swimming',
+        categoryName: 'category 2',
         listOfToDos: [
             {
                 id: '4',
-                title: 'swim faster',
+                title: 'task 1',
                 cateoryId: '2',
                 done: false
             }
@@ -37,7 +37,6 @@ const StoreProvider = ( { children }) => {
 
     const loadCategory = async () => {
         const data = await getCategory()
-        console.log(data);
         dispatch({type: "get-category", payload: data })
     }
 

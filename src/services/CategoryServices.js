@@ -1,5 +1,6 @@
 const ENDPOINT = 'http://localhost:8081/api/category'
 
+
 const HEADERS = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -19,6 +20,5 @@ export const saveCategory = async (category) => {
 
   export const deleteCategory = async (category) => {
     const response = await fetch(`${ENDPOINT}/${category.categoryId}`, {method: "DELETE", headers: HEADERS})
-    // const data = await response.json()
     return response
   }

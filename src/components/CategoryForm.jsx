@@ -11,6 +11,7 @@ const CategoryForm = () => {
       const newCategory = {categoryName: title}
       const response = await saveCategory(newCategory)
       dispatch({type: "add-category", payload: response})
+      setTitle("")
     }
   }
 
