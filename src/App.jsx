@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import './App.css'
+import CategoryForm from './components/CategoryForm'
+import ListOfCategory from './components/ListOfCategory'
+import StoreProvider from './state/StoreProvider'
 
 function App() {
 
   return (
-    <div className="App">
-      <h1>Hello from fron-end</h1>
-    </div>
+    <StoreProvider>
+      <CategoryForm />
+      <ListOfCategory />
+    </StoreProvider>
   )
 }
 
