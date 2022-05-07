@@ -1,10 +1,11 @@
 function reducer(state, action) {
     switch(action.type){
         case 'add-category':
+            console.log(action);
             return [...state, action.payload]
         case 'remove-category':
-            return state.filter((category) => category.categoryId !== action.payload.id)
-        case 'get-categoty':
+            return state.filter((category) => category.categoryId !== action.payload.categoryId)
+        case 'get-category':
             return action.payload
         case 'add-todo':
             return action.payload

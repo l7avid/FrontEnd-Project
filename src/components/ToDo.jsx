@@ -19,7 +19,7 @@ const Todo = ({ todo }) => {
   return (
     <div style={{ border: 'solid black 1px' }}>
       <h3>{todo.title}</h3>
-      <input type='checkbox' value={todo.done} checked={() => updateToDo(todo)} />
+      <input type='checkbox' checked={todo.done} onChange={() => updateToDo(todo)} />
       <button onClick={() => deleteToDo(todo)}>Delete</button>
       <button>Update</button>
     </div>

@@ -1,7 +1,8 @@
 import React, { createContext, useEffect, useReducer } from 'react'
+import { getCategory } from '../services/CategoryServices';
 import reducer from './Reducer';
 
-const initialState = [
+/*const initialState = [
     {
         categoryId: '1',
         categoryName: 'sports',
@@ -25,18 +26,24 @@ const initialState = [
             }
         ]
     }
-]
+]*/
 
-const Store = createContext(initialState);
+export const Store = createContext({});
 
 const StoreProvider = ( { children }) => {
 
     //dispatch is the trigger that execute the state changes
-    const [state, dispatch] = useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reducer, [])
+
+    const loadCategory = async () => {
+        const data = await getCategory()
+        console.log(data);
+        dispatch({type: "get-category", payload: data })
+    }
 
     useEffect(() => {
-        
-    })
+        loadCategory()
+    },[])
 
   return (
         <Store.Provider value={{state, dispatch}}>
@@ -46,4 +53,3 @@ const StoreProvider = ( { children }) => {
 }
 
 export default StoreProvider
-export {Store, initialState}
