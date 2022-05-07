@@ -1,7 +1,7 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { deleteToDo, updateToDo } from '../services/ToDoServices'
 import { Store } from '../state/StoreProvider'
-const Todo = ({ todo }) => {
+const Todo = ({ todo, setTemporalAuxState }) => {
   const { dispatch } = useContext(Store)
 
   const deleteSingleToDo = async (todo) => {
@@ -11,11 +11,8 @@ const Todo = ({ todo }) => {
     }
   }
 
-  const updateSingleToDo = async (todo) => {
-    const response = await updateToDo(todo)
-    if(response.status === 200){
-      dispatch({ type: 'update-todo', payload: response })
-    }
+  const updateSingleToDo = (todo) => {
+    setTemporalAuxState(todo)
   }
 
   const updateCheck = async (todo) => {
@@ -35,7 +32,7 @@ const Todo = ({ todo }) => {
       <h3 style={todo.done ? completeToDo: {}}>{todo.title}</h3>
       <input type='checkbox' checked={todo.done} onChange={() => updateCheck(todo)} />
       <button onClick={() => deleteSingleToDo(todo)}>Delete</button>
-      <button onClick={() => updateSingleToDo(todo)}>Update</button>
+      {!todo.done && <button onClick={() => updateSingleToDo(todo)}>Update</button>}
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { Store } from '../state/StoreProvider'
 
 const TodoForm = ({ categoryParent }) => {
   const { dispatch } = useContext(Store)
-  const [userInput, setUserInput] = useState('')
+  const [userInput, setUserInput] = useState("")
   const onSubmitToDo = async (e) => {
     e.preventDefault()
     const postTodo = { title: userInput, categoryId: categoryParent.categoryId, done: false }
