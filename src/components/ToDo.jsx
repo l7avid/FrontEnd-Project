@@ -11,6 +11,13 @@ const Todo = ({ todo }) => {
     }
   }
 
+  const updateSingleToDo = async (todo) => {
+    const response = await updateToDo(todo)
+    if(response.status === 200){
+      dispatch({ type: 'update-todo', payload: response })
+    }
+  }
+
   const updateCheck = async (todo) => {
     const checkTodo = { ...todo, done: !todo.done }
     const newState = await updateToDo(checkTodo)
@@ -19,12 +26,16 @@ const Todo = ({ todo }) => {
     }
   }
 
+  const completeToDo = {
+    textDecoration: "line-through"
+  };
+
   return (
     <div style={{ border: 'solid black 1px' }}>
-      <h3>{todo.title}</h3>
+      <h3 style={todo.done ? completeToDo: {}}>{todo.title}</h3>
       <input type='checkbox' checked={todo.done} onChange={() => updateCheck(todo)} />
       <button onClick={() => deleteSingleToDo(todo)}>Delete</button>
-      <button>Update</button>
+      <button onClick={() => updateSingleToDo(todo)}>Update</button>
     </div>
   )
 }
