@@ -1,6 +1,10 @@
 import { useContext } from 'react'
 import { deleteToDo, updateToDo } from '../services/ToDoServices'
 import { Store } from '../state/StoreProvider'
+import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
 const Todo = ({ todo, setTemporalAuxState }) => {
   const { dispatch } = useContext(Store)
 
@@ -28,11 +32,11 @@ const Todo = ({ todo, setTemporalAuxState }) => {
   };
 
   return (
-    <div style={{ border: 'solid black 1px' }}>
+    <div style={{ border: 'groove black' }}>
       <h3 style={todo.done ? completeToDo: {}}>{todo.title}</h3>
       <input type='checkbox' checked={todo.done} onChange={() => updateCheck(todo)} />
-      <button onClick={() => deleteSingleToDo(todo)}>Delete</button>
-      {!todo.done && <button onClick={() => updateSingleToDo(todo)}>Update</button>}
+      <FontAwesomeIcon fixedWidth  icon={faTrash} onClick={() => deleteSingleToDo(todo)}>Delete</FontAwesomeIcon>
+      {!todo.done && <FontAwesomeIcon fixedWidth  icon={faPenToSquare}  onClick={() => updateSingleToDo(todo)}>Update</FontAwesomeIcon>}
     </div>
   )
 }
