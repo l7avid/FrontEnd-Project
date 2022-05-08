@@ -16,7 +16,7 @@ const AuxForm = ({ temporalAuxState, setTemporalAuxState }) => {
   return (
     <form onSubmit={(e) => onSubmitToDo(e)}>
       <label>
-        <input placeholder='Update ToDo' onChange={(e) => setTemporalAuxState({...temporalAuxState, title: e.target.value})} value={temporalAuxState.title} />
+        <input style={{backgroundColor: "ivory", marginTop: 10}} placeholder='Update ToDo' onChange={(e) => setTemporalAuxState({...temporalAuxState, title: e.target.value})} value={temporalAuxState.title} />
       </label>
     </form>
   )

@@ -1,3 +1,5 @@
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useContext, useState } from 'react'
 import { deleteCategory } from '../services/CategoryServices'
 import { Store } from '../state/StoreProvider'
@@ -15,10 +17,10 @@ const Category = ({ category }) => {
     }
   }
   return (
-    <ul>
+    <ul style={{borderColor: "red", border: "solid"}} >
       <li>
-        <h4>{category.categoryName}</h4>
-        <button onClick={() => deleteSingleCategory(category)}>Delete</button>
+        <h3 style={{fontFamily: 'Helvetica', fontSize: 25}}>{category.categoryName}</h3>
+        <FontAwesomeIcon style={{backgroundColor: "powderblue"}} fixedWidth border icon={faTrash} onClick={() => deleteSingleCategory(category)}>Delete</FontAwesomeIcon>
         {
           temporalAuxState.title ? <AuxForm setTemporalAuxState={setTemporalAuxState} temporalAuxState={temporalAuxState}/> : <TodoForm categoryParent={category} />
 

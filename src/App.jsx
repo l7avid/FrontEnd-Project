@@ -7,10 +7,12 @@ import StoreProvider from './state/StoreProvider'
 function App() {
 
   return (
+    <div style={{backgroundColor: "ghostwhite"}}>
     <StoreProvider>
       <CategoryForm />
       <ListOfCategory />
     </StoreProvider>
+    </div>
   )
 }
 

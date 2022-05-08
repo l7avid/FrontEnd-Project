@@ -28,15 +28,18 @@ const Todo = ({ todo, setTemporalAuxState }) => {
   }
 
   const completeToDo = {
-    textDecoration: "line-through"
+    textDecoration: "line-through",
+    color: "green",
+    fontSize: 20,
+    marginLeft: 10
   };
 
   return (
-    <div style={{ border: 'groove black' }}>
-      <h3 style={todo.done ? completeToDo: {}}>{todo.title}</h3>
+    <div style={{ border: 'solid 2px', marginTop: 10, marginBottom: 10,  marginRight: 20}}>
+      <h3 style={todo.done ? completeToDo: { color: "crimson", fontSize: 20, marginLeft: 10}}>{todo.title}</h3>
       <input type='checkbox' checked={todo.done} onChange={() => updateCheck(todo)} />
-      <FontAwesomeIcon fixedWidth  icon={faTrash} onClick={() => deleteSingleToDo(todo)}>Delete</FontAwesomeIcon>
-      {!todo.done && <FontAwesomeIcon fixedWidth  icon={faPenToSquare}  onClick={() => updateSingleToDo(todo)}>Update</FontAwesomeIcon>}
+      <FontAwesomeIcon style={{backgroundColor: "powderblue"}} fixedWidth border icon={faTrash} onClick={() => deleteSingleToDo(todo)}>Delete</FontAwesomeIcon>
+      {!todo.done && <FontAwesomeIcon fixedWidth border style={{backgroundColor: "powderblue"}} icon={faPenToSquare}  onClick={() => updateSingleToDo(todo)}>Update</FontAwesomeIcon>}
     </div>
   )
 }

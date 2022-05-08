@@ -18,7 +18,7 @@ const CategoryForm = () => {
   return (
     <form onSubmit={(event) => onSubmit(event)}>
       <label>
-        <input value={title} onChange={(event) => setTitle(event.target.value)} placeholder='Add new category' />
+        <input style={{backgroundColor: "ivory"}} value={title} onChange={(event) => setTitle(event.target.value)} placeholder='Add new category' />
       </label>
     </form>
   )
